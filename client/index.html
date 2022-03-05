@@ -58,7 +58,19 @@
           </div>
 
         </div>
+
       </div>
+
+    </div>
+    <div id="comment-form">
+      <!-- <form action="" onsubmit="app.commentsController.handleSubmit()">
+        <div class="mb-3 col-12">
+          <label for="" class="form-label">Description</label>
+          <input maxlength="50" required type="text" class="form-control" name="description" id="description"
+            aria-describedby="helpId" placeholder="Description..." value="${postData.description}">
+        </div>
+        <button class="btn btn-success">Post</button>
+      </form> -->
     </div>
 
 
@@ -77,26 +89,27 @@
         <div class="modal-header"> <button type="button" class="btn-close" data-bs-dismiss="modal"
             aria-label="Close"></button> </div>
         <div class="modal-body bg-white" id="modal-body-slot">
-          <form class="row p-2" onsubmit="app.postsController.createPost(id)">
+          <!-- <form class="row p-2" onsubmit="app.postsController.createPost(id)">
             <h3 class="col-12">Create a Post</h3>
 
             <div class="mb-3 col-6">
               <label for="" class="form-label">ImgUrl</label>
               <input required type="text" class="form-control" name="imgUrl" id="imgUrl" aria-describedby="helpId"
-                placeholder="" value="imgUrl">
+                placeholder="Image Url" value="">
 
             </div>
             <div class="mb-3 col-12">
               <label for="" class="form-label">Description</label>
               <input maxlength="50" required type="text" class="form-control" name="description" id="description"
-                aria-describedby="helpId" placeholder="" value="description">
+                aria-describedby="helpId" placeholder="Description..." value="">
             </div>
             <button class="btn btn-info col-3">Create Post</button>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.15/auth0-spa-js.production.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/AuthProvider.browser.js"></script>

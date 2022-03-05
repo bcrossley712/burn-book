@@ -10,6 +10,7 @@ class PostsService {
     const res = await api.get('api/posts')
     logger.log("POSTS", res.data)
     const posts = res.data.map(p => new Post(p))
+    posts.reverse()
     ProxyState.posts = posts
   }
   async createPost(rawData) {
@@ -19,6 +20,7 @@ class PostsService {
     ProxyState.posts = [post, ...ProxyState.posts]
   }
 
+  //TODO only non-archives should populate to page
   async deletePost(id) {
     const res = await api.delete('api/posts/' + id)
 
@@ -29,7 +31,9 @@ class PostsService {
   async editPost(id, data) {
     const res = await api.put('api/posts/' + id, data)
     logger.log("editing the post", res.data)
-    ProxyState.posts
+    let postIndex = ProxyState.posts.findIndex(p => p.id == id)
+    ProxyState.posts.splice(postIndex, 1, new Post(res.data))
+    ProxyState.posts = ProxyState.posts
   }
 }
 
