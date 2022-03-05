@@ -22,7 +22,7 @@ export class Post {
     <button class="btn btn-outline-danger d-grid" onclick="app.carsController.dislikePost('${this.id}')"> Ew
       Gross </button>
     <button class="btn btn-info" onclick="app.commentsController.createComment('${this.id}')">Create Comment</button>
-  
+
       ${this.commentTemplate}
     </div>
     
