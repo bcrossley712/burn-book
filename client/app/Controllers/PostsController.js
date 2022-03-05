@@ -37,10 +37,26 @@ export class PostsController {
             }
             await postsService.createPost(rawData)
             let modal = document.getElementById("create-post")
-            form.reset()
+            // form.reset()
 
         } catch (error) {
 
+        }
+    }
+    async deletePost(id) {
+        try {
+            await postsService.deletePost(id)
+        } catch (error) {
+            logger.error(error.message)
+        }
+    }
+
+    async editPost(id) {
+        try {
+            let rawData = {}
+            await postsService.editPost(id, rawData)
+        } catch (error) {
+            logger.error(error.message)
         }
     }
 

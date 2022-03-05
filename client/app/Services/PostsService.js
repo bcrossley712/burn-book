@@ -5,6 +5,7 @@ import { api } from "./AxiosService.js"
 
 class PostsService {
 
+
   async getAllPosts() {
     const res = await api.get('api/posts')
     logger.log("POSTS", res.data)
@@ -13,9 +14,22 @@ class PostsService {
   }
   async createPost(rawData) {
     const res = await api.post('api/posts', rawData)
-    logger.log(res.data)
+    logger.log("Create", res.data)
     const post = new Post(res.data)
     ProxyState.posts = [post, ...ProxyState.posts]
+  }
+
+  async deletePost(id) {
+    const res = await api.delete('api/posts/' + id)
+
+    logger.log("delete", res.data)
+    ProxyState.posts = ProxyState.posts.filter(p => p.id !== id)
+  }
+
+  async editPost(id, data) {
+    const res = await api.put('api/posts/' + id, data)
+    logger.log("editing the post", res.data)
+    ProxyState.posts
   }
 }
 
