@@ -1,11 +1,14 @@
 import mongoose from 'mongoose'
 import { AccountSchema, ProfileSchema } from '../models/Account'
 import { CommentSchema } from "../models/Comment";
+import { DislikeSchema } from "../models/Dislike";
 import { PostSchema } from "../models/Post";
 import { ValueSchema } from '../models/Value'
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
+
+  Dislikes = mongoose.model('Dislike', DislikeSchema)
   Account = mongoose.model('Account', AccountSchema);
   Profiles = mongoose.model('Profile', ProfileSchema, 'accounts');
   Comments = mongoose.model('Comment', CommentSchema)

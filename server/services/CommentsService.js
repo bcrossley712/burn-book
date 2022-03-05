@@ -3,15 +3,16 @@ import { Forbidden } from "../utils/Errors"
 
 class CommentsService {
   async getAll(query = {}) {
-    const comments = await dbContext.Comments.find(query)
+    const comments = await dbContext.Comments.find(query).populate('post')
     return comments
   }
   async getOne(id) {
-    const comment = await dbContext.Comments.findById(id)
+    const comment = await dbContext.Comments.findById(id).populate('post')
     return comment
   }
   async create(body) {
     const comment = await dbContext.Comments.create(body)
+    await comment.populate('post')
     return comment
   }
   async edit(commentId, update) {
